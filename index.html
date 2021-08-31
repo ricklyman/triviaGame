@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trivia Game</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+
+<body onLoad="initCards();fetchRandomCategory();">
+
+	<html>
+
+	<div id="card1" class="screen">
+		<table id="tblOne">
+			<tr>
+				<td colspan="6">
+					<h1>Trivia Game</h1>
+				</td>
+			</tr>
+			<td>
+				<h2>Category</h2>
+			</td>
+			<td id="categoryIntro" colspan="2">Randomly Selected</td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Question</h3>
+				</td>
+				<td colspan="2"><textarea type="text" id="questionIntro" rows="4" cols="60"
+						readonly>When competitors are asked questions about interesting but unimportant facts in many subjects</textarea>
+				</td>
+				<td>&nbsp</td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Answer</h3>
+				</td>
+				<td colspan="2"><input type="text" id="answerIntro" required minlength="4" maxlength="80" size="40"
+						value="A Trivia Game" readonly /></td>
+				<td>&nbsp</td>
+			</tr>
+			<tr>
+
+			<tr>
+				<td>&nbsp</td>
+				<td><button onClick="startGame();">Start Game</button></td>
+			</tr>
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="card2" class="screen">
+		<table id="tblTwo">
+			<tr>
+				<td colspan="6">
+					<h1>Trivia Game</h1>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h2>Category</h2>
+				</td>
+				<td id="category1" colspan="2"></td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Question</h3>
+				</td>
+				<td colspan="2"><textarea type="text" id="tblTwoBlankQuestion" rows="4" cols="60"
+						readonly>Loading... </textarea>
+				</td>
+				<td>&nbsp</td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Answer</h3>
+				</td>
+				<td colspan="2"><input type="text" id="blankAnswer" required minlength="4" maxlength="80" size="40" />
+				</td>
+				<td>&nbsp</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button onClick="submitAnswer();">Submit Answer</button></td>
+			</tr>
+			<tr>
+				<td id="points1"></td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="card3" class="screen">
+		<table id="correctAnswer">
+			<tr>
+				<td colspan="6">
+					<h1>Trivia Game</h1>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h2>Category</h2>
+				</td>
+				<td id="category2" colspan="2"></td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Question<h3>
+				</td>
+				<td colspan="2"><textarea type="text" id="correctAnswerBlankQuestion" rows="4" cols="60"
+						readonly></textarea></td>
+				<td>&nbsp</td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Answer<h3>
+				</td>
+				<td colspan="2"><input type="text" id="answer" required minlength="4" maxlength="80" size="40" /></td>
+				<td>&nbsp</td>
+			</tr>
+			<tr>
+				<td>Correct!</td>
+				<td><button>Continue Game</button></td>
+				<td><button>Exit Game</button></td>
+			</tr>
+			<tr>
+				<td id="points2">Current Points</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="card4" class="screen">
+		<table id="incorrectAnswer">
+			<tr>
+				<td colspan="6">
+					<h1>Trivia Game</h1>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h2>Category</h2>
+				</td>
+				<td id="category3" colspan="2"></td>
+			<tr></tr>
+			<td>
+				<h3>Question<h3>
+			</td>
+			<td colspan="2"><textarea type="text" id="incorrectAnswerBlankQuestion" required rows="4" cols="60"
+					readonly></textarea></td>
+			<td>&nbsp</td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Answer<h3>
+				</td>
+				<td colspan="2"><input type="text" id="userAnswered" required minlength="4" maxlength="80" size="40"
+						readonly /></td>
+				<td>&nbsp</td>
+			</tr>
+			<tr>
+				<td>Incorrect!</td>
+				<td><button onClick="seeCorrectAnswer();">See Correct Answer</button></td>
+				<td><button onClick="startNewGame();">Start a New Game</button></td>
+			</tr>
+			<tr>
+				<td>Current Points</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="card5" class="screen">
+		<table id="revealAnswer">
+			<tr>
+				<td colspan="6">
+					<h1>Trivia Game</h1>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h2>Category</h2>
+				</td>
+				<td id="category4" colspan="2"></td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Question</h3>
+				</td>
+				<td colspan="2"><textarea type="text" id="revealAnswerBlankQuestion" required rows="4" cols="60"
+						readonly></textarea></td>
+				<td>&nbsp</td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Answer</h3>
+				</td>
+				<td colspan="2"><input type="text" id="expectedAnswer" required minlength="4" maxlength="80" size="40"
+						readonly /></td>
+				<td>&nbsp</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button onClick="startNewGame();">Start a New Game</button></td>
+				<td><button onClick="exitGame();">Exit Game</button></td>
+			</tr>
+			<tr>
+				<td id="points4"></td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="card6" class="screen">
+		<table id="tblExit">
+			<tr>
+				<td colspan="6">
+					<h1>Trivia Game</h1>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h2>Category</h2>
+				</td>
+				<td id="categoryExit" colspan="2"></td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Question</h3>
+				</td>
+				<td colspan="2"><textarea type="text" id="questionExit" required rows="4" cols="60"
+						readonly>Thanks for Playing!</textarea></td>
+				<td>&nbsp</td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Answer</h3>
+				</td>
+				<td colspan="2"><input type="text" id="exitGame" required minlength="4" maxlength="80" size="40"
+						value="" readonly /></td>
+				<td>&nbsp</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td colspan="2">Data from: "https://jservice.io/</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td id="points5"></td>
+			</tr>
+		</table>
+	</div>
+	<script src="./code.js"></script>
+
+</body>
+
+</html>
