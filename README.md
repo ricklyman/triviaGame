@@ -42,3 +42,5 @@ arrayR[0] is the first card dealt.
 Perhaps the value at index 0, in this example, is the number 13.
 Question/Answer 13 is used.
 etc etc
+
+![Alt text](./triviaGame.png?raw=true "Model")
