@@ -1,7 +1,10 @@
 # triviaGame
 When competitors are asked interesting questions: about important (and unimportant) facts, in many subjects
 
-The model:
+(https://trivigame.glitch.me/)
+
+##The model:
+
 You decide to start a card game with some friends.
 You are acting as the dealer.
 You open a new deck.
