@@ -1,7 +1,8 @@
 # triviaGame
 When competitors are asked interesting questions: about important (and unimportant) facts, in many subjects
 
-The model:You decide to start a card game with some friends.
+The model:
+You decide to start a card game with some friends.
 You are acting as the dealer.
 You open a new deck.
 You shuffle the deck, several times.
@@ -16,7 +17,7 @@ You read from the top of the deck.
 If the player can answer the question they receive the card.
 The card is removed from the deck if they cannot.
 
-They player with the most cards, when the deck is "empty", wins the game.
+The player with the most cards, when the deck is "empty", wins the game.
 Still acting as the dealer, you decide to modify the game.
 You choose another a category (eg true or false), you add a trivia question to each card.
 You color code the categories for future randomization of the categories.
